@@ -19,14 +19,15 @@ while (myTiger.GetLiving())
   Console.WriteLine($"3. Mata {myTiger.name}!");
   Console.WriteLine("4. Gör ingenting alls");
 
-string doWhat = Console.ReadLine();
+  string doWhat = Console.ReadLine();
 
   if (doWhat == "1")
   {
     Console.WriteLine($"Vilket ord vill du lära {myTiger.name}?");
     string word = Console.ReadLine();
+    myTiger.words.Add(word);
     //Console.WriteLine($"{myTiger.name} har lärt sig {word}!");
-    myTiger.Lär(word);
+    //myTiger.Lär(word);
   }
 
   if (doWhat == "2")
@@ -41,7 +42,7 @@ string doWhat = Console.ReadLine();
   {
     Console.WriteLine("Gör ingenting.");
   }
-//if (hunger > 9) 
+  //if (hunger > 9) 
 
   Console.ReadLine();
   myTiger.Tick();
@@ -50,8 +51,8 @@ string doWhat = Console.ReadLine();
 //Tamagotchi dies when hunger reaches 10
 if (myTiger.GetDead())
 {
-Console.WriteLine($"NEEEEEEEJ! {myTiger.name} har dött!!!!!!");
-Console.WriteLine("Klicka ENTER för att lämna... :(");
+  Console.WriteLine($"NEEEEEEEJ! {myTiger.name} har dött!!!!!!");
+  Console.WriteLine("Klicka ENTER för att lämna... :(");
 }
 
 Console.ReadLine();

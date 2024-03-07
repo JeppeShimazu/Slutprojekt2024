@@ -6,7 +6,7 @@ public class Tiger
 {
 private int hunger;
 private int boredom;
-private List<string> words = new List<string>() {"Gud va kul att prata!!!"};
+public List<string> words = new List<string>() {"Gud va kul att prata!!!"};
 private bool isLiving;
 private Random generator;
 public string name;
@@ -85,4 +85,3 @@ public bool GetDead()
 }
 
 }
-

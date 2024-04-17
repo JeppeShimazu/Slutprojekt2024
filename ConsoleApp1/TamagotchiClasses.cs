@@ -6,11 +6,11 @@ public class Tiger
 {
 private int hunger;
 private int boredom;
-public List<string> words = new List<string>() {"Gud va kul att prata!!!"};
  public List<string> learnedWords = new List<string>();
 private bool isLiving;
 private Random generator;
 public string name;
+private int ordförråd;
 
 public Tiger()
 {
@@ -20,7 +20,7 @@ isLiving = true;
 
 public void Mata()
 {
-    Console.WriteLine($"Du matar [{name}], din tiger är inte lika hungrig längre");
+    Console.WriteLine($"Du matar {name}, din tiger är inte lika hungrig längre");
     hunger -= 2;
     if (hunger < 0)
     {
@@ -30,8 +30,7 @@ public void Mata()
 
 public void Hej()
 {
-    int wordNum = generator.Next(words.Count);
-    Console.WriteLine($"[{name}] says: {words[wordNum]}");
+    Console.WriteLine($"{name} säger: Gud va kul att prata!!!");
     ReduceBoredom();
 }
 
@@ -40,13 +39,14 @@ public void Lär()
     Console.WriteLine($"Vilket ord vill du lära {name}?");
     string newWord = Console.ReadLine();
     LearnNewWord(newWord);
+    ordförråd ++;
     ReduceBoredom();
 }
 
 
   public void PrintStats()
   {
-    Console.WriteLine($"Name: {name} || Hunger: {hunger} || Boredom: {boredom} || Vocabulary: {words.Count} words");
+    Console.WriteLine($"Name: {name} || Hunger: {hunger} || Boredom: {boredom} || Vocabulary: {ordförråd} words");
   }
 public bool GetLiving(){
     if (isLiving)
@@ -90,7 +90,7 @@ public bool GetDead()
     public void LearnNewWord(string word)
     {
         learnedWords.Add(word);
-        Console.WriteLine($"Djuret har lärt sig ordet: {word}");
+        Console.WriteLine($"{name} har lärt sig ordet: {word}");
     }
 
   public void ShowLearnedWords()
@@ -101,5 +101,6 @@ public bool GetDead()
   Console.WriteLine(word);
   }
   }
+  
 
 }

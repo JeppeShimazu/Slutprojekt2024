@@ -5,7 +5,6 @@ private int boredom;
 private bool isAlive;
 private Random generator;
 public string name;
-public string type;
 public string description;
 
 public Animal()

@@ -18,18 +18,14 @@ while (myTiger.GetLiving())
   Console.WriteLine($"2. Prata med {myTiger.name}!");
   Console.WriteLine($"3. Mata {myTiger.name}!");
   Console.WriteLine("4. Gör ingenting alls");
+  Console.WriteLine($"5. Visa vilka ord {myTiger.name} har lärt sig");
 
   string doWhat = Console.ReadLine();
 
   if (doWhat == "1")
   {
-    Console.WriteLine($"Vilket ord vill du lära {myTiger.name}?");
-    string word = Console.ReadLine();
-    myTiger.words.Add(word);
-    //Console.WriteLine($"{myTiger.name} har lärt sig {word}!");
-    //myTiger.Lär(word);
+    myTiger.Lär();
   }
-
   if (doWhat == "2")
   {
     myTiger.Hej();
@@ -43,6 +39,10 @@ while (myTiger.GetLiving())
     Console.WriteLine("Gör ingenting.");
   }
   //if (hunger > 9) 
+  if (doWhat == "5")
+  {
+    myTiger.ShowLearnedWords();
+  }
 
   Console.ReadLine();
   myTiger.Tick();

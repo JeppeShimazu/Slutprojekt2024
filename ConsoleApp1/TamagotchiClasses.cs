@@ -7,6 +7,7 @@ public class Tiger
 private int hunger;
 private int boredom;
 public List<string> words = new List<string>() {"Gud va kul att prata!!!"};
+ public List<string> learnedWords = new List<string>();
 private bool isLiving;
 private Random generator;
 public string name;
@@ -34,10 +35,11 @@ public void Hej()
     ReduceBoredom();
 }
 
-public void Lär(string word)
+public void Lär()
 {
-    Console.WriteLine($" [{name}] lär sig: {word}");
-    words.Add(word);
+    Console.WriteLine($"Vilket ord vill du lära {name}?");
+    string newWord = Console.ReadLine();
+    LearnNewWord(newWord);
     ReduceBoredom();
 }
 
@@ -56,7 +58,7 @@ public bool GetLiving(){
 
 public void ReduceBoredom()
   {
-    Console.WriteLine($"[{name}] Är nu mindre uttråkad!!!");
+    Console.WriteLine($"{name} Är nu mindre uttråkad!!!");
 
     boredom -= 2;
     if (boredom < 0)
@@ -83,5 +85,21 @@ public bool GetDead()
     }
     return false;
 }
+
+
+    public void LearnNewWord(string word)
+    {
+        learnedWords.Add(word);
+        Console.WriteLine($"Djuret har lärt sig ordet: {word}");
+    }
+
+  public void ShowLearnedWords()
+  {
+  Console.WriteLine("Djuret har lärt sig följande ord:");
+  foreach (var word in learnedWords)
+  {
+  Console.WriteLine(word);
+  }
+  }
 
 }
